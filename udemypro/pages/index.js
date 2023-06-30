@@ -7,6 +7,7 @@ const Home = () => {
     const featuredEvents = getFeaturedEvents()
     // const allEvents=getAllEvents()
     console.log(featuredEvents)
+
     // console.log(allEvents)
 
   return (

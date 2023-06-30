@@ -33,7 +33,7 @@ const Eventid = () => {
         <h4>{event.location}</h4>
       </div>
       <div>
-        <h4>{event.readyDate}</h4>
+        <h4>{readyDate}</h4>
         </div>
     </div>
 </li>
