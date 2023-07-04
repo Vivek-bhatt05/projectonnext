@@ -1,5 +1,5 @@
 import { getEventById } from "@/dummy-data";
-import { getAllEventsData, getEventByIdData } from "@/helpers/apicalling";
+import { getAllEventsData, getEventByIdData, getFeaturedEventsData } from "@/helpers/apicalling";
 import { useRouter } from "next/router"
 
 
@@ -11,7 +11,7 @@ const Eventid = (props) => {
     return <p>No event</p>
   }
 
-  console.log(event)
+
   const readyDate= new Date(event.date).toLocaleDateString('en-US',{
     day: 'numeric',
     month:'long',
@@ -44,12 +44,13 @@ export async function getStaticProps(context){
   return {
     props:{
       singleEvent : event
-    }
+    },
+    revalidate:30
   }
 }
 
 export async function getStaticPaths(){
-  const data = await getAllEventsData();
+  const data = await getFeaturedEventsData();
    const ids = data.map((event)=> event.id)
 
 

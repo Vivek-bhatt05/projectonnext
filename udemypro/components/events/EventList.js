@@ -5,7 +5,7 @@ import styles from 'styles/event-list.module.css'
 function EventList (props)  {
 
     const {items}=props
-    console.log(items)
+    // console.log(items)
 
   return (
     <ul className={styles.list} >
