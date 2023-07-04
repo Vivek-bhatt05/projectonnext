@@ -16,7 +16,7 @@ const Events = () => {
       router.push(fullPath)
     }
 
-    console.log(allEvents)
+    // console.log(allEvents)
 
   return (
     <div>
