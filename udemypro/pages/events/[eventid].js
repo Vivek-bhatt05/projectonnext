@@ -1,5 +1,6 @@
 import { getEventById } from "@/dummy-data";
 import { getAllEventsData, getEventByIdData, getFeaturedEventsData } from "@/helpers/apicalling";
+import Head from "next/head";
 import { useRouter } from "next/router"
 
 
@@ -19,6 +20,13 @@ const Eventid = (props) => {
 })
   
   return (
+    <>
+    <Head>
+        <title>
+          {event.title}
+        </title>
+        <meta name="description" content={event.description} />
+      </Head>
     <li  key={event.id}>
     <img src={'/'+event.image} alt={event.title} />
     <div >
@@ -33,6 +41,7 @@ const Eventid = (props) => {
         </div>
     </div>
 </li>
+</>
   )
 }
 

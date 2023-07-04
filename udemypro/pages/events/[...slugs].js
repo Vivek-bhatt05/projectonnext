@@ -22,6 +22,12 @@ if(!filterEvents || filterEvents.length<1){
 
   return (
     <div>
+      <Head>
+        <title>
+          Filtered Events
+        </title>
+        <meta name="description" content="Find various events going to be held" />
+      </Head>
       <EventList items={filterEvents} />
     </div>
   )

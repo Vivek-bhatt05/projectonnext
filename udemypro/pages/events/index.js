@@ -2,6 +2,7 @@ import EventList from "@/components/events/EventList"
 import EventSearch from "@/components/events/EventSearch"
 import { getAllEvents } from "@/dummy-data"
 import { getAllEventsData } from "@/helpers/apicalling"
+import Head from "next/head"
 import { useRouter } from "next/router"
 
 
@@ -21,6 +22,12 @@ const Events = (props) => {
 
   return (
     <div>
+      <Head>
+        <title>
+          All Events
+        </title>
+        <meta name="description" content="Find various events going to be held" />
+      </Head>
       <EventSearch onSearch={findEvent} />
       <EventList items={allEvents} />
     </div>
