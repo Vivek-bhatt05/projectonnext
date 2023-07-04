@@ -1,15 +1,11 @@
 import { getEventById } from "@/dummy-data";
+import { getAllEventsData, getEventByIdData } from "@/helpers/apicalling";
 import { useRouter } from "next/router"
 
 
-const Eventid = () => {
+const Eventid = (props) => {
 
-  const router =useRouter();
-
-  const eventId= router.query.eventid
-  // console.log(eventId)
-
-  const event = getEventById(eventId)
+  const event = props.singleEvent
 
   if(!event){
     return <p>No event</p>
@@ -38,6 +34,32 @@ const Eventid = () => {
     </div>
 </li>
   )
+}
+
+export async function getStaticProps(context){
+  const eventId = context.params.eventid;
+
+  const event = await getEventByIdData(eventId);
+
+  return {
+    props:{
+      singleEvent : event
+    }
+  }
+}
+
+export async function getStaticPaths(){
+  const data = await getAllEventsData();
+   const ids = data.map((event)=> event.id)
+
+
+   const paramsPath = ids.map((id)=>({params:{eventid:id}}))
+
+
+  return {
+      paths:paramsPath,
+      fallback: true
+  }
 }
 
 export default Eventid

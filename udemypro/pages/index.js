@@ -1,20 +1,26 @@
 import EventList from "@/components/events/EventList"
-import { getAllEvents, getFeaturedEvents } from "@/dummy-data"
+import { getFeaturedEventsData } from "@/helpers/apicalling"
 
 
-const Home = () => {
-
-    const featuredEvents = getFeaturedEvents()
-    // const allEvents=getAllEvents()
-    // console.log(featuredEvents)
-
-    // console.log(allEvents)
+const Home = (props) => {
 
   return (
     <div>
-      <EventList items={featuredEvents} />
+      <EventList items={props.events} />
     </div>
   )
+}
+
+export async function getStaticProps(){
+
+  const featuredEvents = await getFeaturedEventsData()
+
+  return {
+    props: {
+      events: featuredEvents
+    }
+
+  }
 }
 
 export default Home
