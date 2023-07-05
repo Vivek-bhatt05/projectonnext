@@ -36,12 +36,13 @@ const Events = (props) => {
 export async function getStaticProps(){
 
   const allData = await getAllEventsData()
+  console.log("rebuilding")
 
   return {
     props: {
       events: allData
     },
-    revalidate:2000
+    revalidate:60
   }
 }
 
