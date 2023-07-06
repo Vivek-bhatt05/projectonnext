@@ -41,8 +41,8 @@ export async function getStaticProps(){
   return {
     props: {
       events: allData
-    },
-    revalidate:60
+    }
+    // revalidate:60
   }
 }
 
