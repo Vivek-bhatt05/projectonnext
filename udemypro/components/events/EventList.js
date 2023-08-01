@@ -8,7 +8,7 @@ function EventList (props)  {
     // console.log(items)
 
   return (
-    <ul className={styles.list} >
+    <ul className='event-item' >
         {items.map(item=> <EventItem event={item} key={item.id} />) }
     </ul>
   )
