@@ -15,5 +15,5 @@ describe('Home Page', () => {
     it('displays a list of events', () => {
         cy.get('.event-item') 
           .should('have.length.greaterThan', 0);
-      });
+      });``
   });
