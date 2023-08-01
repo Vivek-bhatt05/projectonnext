@@ -1,6 +1,5 @@
 import EventList from "@/components/events/EventList"
 import EventSearch from "@/components/events/EventSearch"
-import { getAllEvents } from "@/dummy-data"
 import { getAllEventsData } from "@/helpers/apicalling"
 import Head from "next/head"
 import { useRouter } from "next/router"
@@ -36,8 +35,6 @@ const Events = (props) => {
 export async function getStaticProps(){
 
   const allData = await getAllEventsData()
-  console.log("rebuilding")
-
   return {
     props: {
       events: allData

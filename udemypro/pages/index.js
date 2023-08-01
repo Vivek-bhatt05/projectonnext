@@ -6,6 +6,7 @@ import Head from "next/head"
 
 const Home = (props) => {
 
+
   return (
     <div>
       <Head>
@@ -19,6 +20,7 @@ const Home = (props) => {
   )
 }
 
+
 export async function getStaticProps(){
 
   const featuredEvents = await getFeaturedEventsData()
@@ -26,8 +28,8 @@ export async function getStaticProps(){
   return {
     props: {
       events: featuredEvents
-    }
-    // revalidate:2000
+    },
+    revalidate:2
   }
 }
 
